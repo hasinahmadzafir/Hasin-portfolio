@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasin Ahmad Zafir — Mechanical Engineer</title>
+<style>
+  :root {
+    --bg: #f7f6f4;
+    --surface: #ffffff;
+    --surface-2: #eeece8;
+    --border: #e0ddd7;
+    --text: #181816;
+    --text-muted: #68665e;
+    --accent: #b83225;
+    --accent-dim: #f5ebe9;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --r: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 6px 20px rgba(0,0,0,0.04);
+    --t: 0.2s ease;
+  }
+  [data-theme="dark"] {
+    --bg: #111110;
+    --surface: #1b1b19;
+    --surface-2: #232320;
+    --border: #2d2d2a;
+    --text: #eeecea;
+    --text-muted: #8a887f;
+    --accent: #df6050;
+    --accent-dim: #2a1512;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; transition: background var(--t), color var(--t); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; display: block; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 54px;
+  }
+  .nav-brand { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text); }
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); font-size: 0.82rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  #theme-btn { background: none; border: 1px solid var(--border); border-radius: var(--r); padding: 0.28rem 0.6rem; cursor: pointer; color: var(--text-muted); font-size: 0.75rem; transition: all var(--t); font-family: var(--font-mono); }
+  #theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* LAYOUT */
+  main { padding-top: 54px; }
+  section { padding: 5rem 2rem; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  .label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .sec-title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; color: var(--text); margin-bottom: 2.5rem; }
+
+  /* HERO */
+  #hero {
+    min-height: calc(100vh - 54px);
+    display: flex; align-items: center;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 4rem 2rem 3rem;
+  }
+  .hero-inner { max-width: 780px; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 1.25rem;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--accent); }
+  h1.hero-name {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; margin-bottom: 0.5rem;
+  }
+  .hero-role { font-size: clamp(0.95rem, 1.8vw, 1.2rem); color: var(--text-muted); margin-bottom: 1.5rem; }
+  .hero-summary { font-size: 1rem; color: var(--text-muted); max-width: 620px; line-height: 1.78; margin-bottom: 2rem; }
+  .hero-summary strong { color: var(--text); font-weight: 600; }
+  .cta-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.6rem 1.2rem; border-radius: var(--r); font-size: 0.85rem; font-weight: 600; transition: all var(--t); border: none; cursor: pointer; text-decoration: none; }
+  .btn-p { background: var(--accent); color: #fff; }
+  .btn-p:hover { opacity: 0.85; text-decoration: none; }
+  .btn-s { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-s:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .hero-tags { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .tag { font-family: var(--font-mono); font-size: 0.7rem; padding: 0.25rem 0.6rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 100px; color: var(--text-muted); }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+  .proj-grid { display: grid; gap: 1.5rem; }
+  @media(min-width:700px){ .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media(min-width:1000px){ .proj-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* Featured (spans 2 cols on md+) */
+  .proj-card-featured { grid-column: 1 / -1; }
+  @media(min-width:700px){ .proj-card-featured { grid-column: span 2; } }
+  @media(min-width:1000px){ .proj-card-featured { grid-column: span 2; } }
+
+  .proj-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: calc(var(--r)*1.5); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow var(--t), transform var(--t);
+  }
+  .proj-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .proj-img { width: 100%; height: 200px; object-fit: cover; background: var(--surface-2); }
+  .proj-card-featured .proj-img { height: 280px; }
+  .proj-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+  .proj-num { font-family: var(--font-mono); font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+  .proj-title { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+  .proj-summary { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.9rem; line-height: 1.6; }
+
+  /* project detail accordion */
+  .proj-detail { font-size: 0.8rem; margin-bottom: 0.9rem; display: none; }
+  .proj-detail.open { display: block; }
+  .proj-detail dt { font-weight: 600; color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.55rem; }
+  .proj-detail dd { color: var(--text); margin-left: 0; }
+  .proj-support { width: 100%; margin-top: 0.75rem; border-radius: calc(var(--r)*0.75); object-fit: cover; height: 160px; background: var(--surface-2); display: none; }
+  .proj-support.open { display: block; }
+
+  .proj-tools { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.9rem; }
+  .tool { font-family: var(--font-mono); font-size: 0.66rem; padding: 0.18rem 0.45rem; background: var(--accent-dim); color: var(--accent); border-radius: 4px; border: 1px solid var(--accent); opacity: 0.9; }
+  .proj-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .proj-outcome { font-size: 0.78rem; color: var(--text-muted); font-style: italic; }
+  .toggle-btn { font-size: 0.75rem; color: var(--accent); background: none; border: none; cursor: pointer; padding: 0; font-family: var(--font-sans); font-weight: 600; }
+  .toggle-btn:hover { text-decoration: underline; }
+
+  /* SKILLS */
+  #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .skills-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media(min-width:560px){ .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media(min-width:900px){ .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+  .sg { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.2rem; }
+  .sg-title { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+  .sg ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .sg li { font-size: 0.79rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.5rem; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg); }
+  .tl { display: flex; flex-direction: column; gap: 2rem; }
+  .tl-item { display: grid; grid-template-columns: 150px 1fr; gap: 1.25rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-left { padding-top: 0.1rem; }
+  .tl-dates { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); line-height: 1.5; }
+  .tl-org { font-size: 0.78rem; color: var(--accent); font-weight: 600; margin-top: 0.2rem; }
+  .tl-role { font-weight: 700; font-size: 0.98rem; margin-bottom: 0.35rem; }
+  .tl-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
+  .tl-desc ul { padding-left: 1.1rem; margin-top: 0.35rem; }
+  .tl-desc li { margin-bottom: 0.25rem; }
+
+  /* EDUCATION */
+  #education { background: var(--surface); border-top: 1px solid var(--border); }
+  .edu-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .edu-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: start; }
+  .edu-degree { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .edu-uni { color: var(--accent); font-weight: 600; font-size: 0.86rem; margin-bottom: 0.4rem; }
+  .edu-sub { font-size: 0.81rem; color: var(--text-muted); }
+  .edu-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); white-space: nowrap; }
+
+  /* CONTACT */
+  #contact { background: var(--bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .contact-intro { font-size: 0.93rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+  .contact-links { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+  .contact-links li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.86rem; }
+  .ci { width: 30px; height: 30px; border-radius: 5px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  /* FOOTER */
+  footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.25rem 2rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+
+  /* REVEAL */
+  .rev { opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .rev.vis { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .nav-links { display: none; }
+    section { padding: 3rem 1.25rem; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.2rem; }
+    .edu-card { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">HAZ.eng</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="theme-btn">◐ theme</button>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Mechanical Engineering &amp; Product Development</div>
+    <h1 class="hero-name">Hasin Ahmad Zafir</h1>
+    <p class="hero-role">FEA · CFD · Engineering Design · CSWE · Manufacturing</p>
+    <p class="hero-summary">
+      Engineering graduate with hands-on experience across <strong>structural FEA, aerodynamic CFD, and physical fabrication</strong>
+      ;spanning Formula Student motorsport, STEM product development, wind-tunnel lab work, and composite aerostructures.
+      Founded and led IUT's first Formula SAE team to a <strong>3rd-place podium</strong> at Formula Bharat 2023.
+      Currently finishing up my degree at UNSW and open to graduate engineering and consulting opportunities.
+    </p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-p">View Projects ↓</a>
+      <a href="#contact" class="btn btn-s">Resume &amp; Contact</a>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">Formula Student</span>
+      <span class="tag">ANSYS FEA / CFD / ACP</span>
+      <span class="tag">SolidWorks / Fusion 360 / Rhinoceros</span>
+      <span class="tag">Python / MATLAB</span>
+      <span class="tag">OpenFOAM</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="label">Featured Work</p>
+    <h2 class="sec-title">Engineering Projects</h2>
+    <div class="proj-grid">
+
+      <!-- 1: Formula IUT (featured / wide) -->
+      <article class="proj-card proj-card-featured rev">
+        <img class="proj-img" src="FORMULA-IUT-IRL.jpg" alt="Formula IUT FSAE car, fully assembled on campus" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-num">01 · Formula Student · Oct 2022 – Feb 2025</div>
+          <h3 class="proj-title">Formula IUT — FSAE Racing Car</h3>
+          <p class="proj-summary">Founded and co-built Islamic University of Technology's first Formula SAE car: A steel space-frame vehicle built on an $8,000 budget and raced to 3rd place at Formula Bharat 2023 against 53 teams.</p>
+          <div class="proj-detail" id="d1">
+            <dt>Objective</dt>
+            <dd>Deliver a competition-ready FSAE vehicle meeting structural, safety, and performance regulations from a standing start as a new team.</dd>
+            <dt>What I did</dt>
+            <dd>Founded the team; designed the space-frame chassis (FoS 1.8, 98 kg); performed front-impact and torsional FEA; coordinated aero, suspension, and drivetrain subteams; managed fabrication using a chassis jig; presented design to competition judges.</dd>
+            <dt>Outcome</dt>
+            <dd>3rd place · Formula Bharat 2023 · Class 1 · 53 competing teams</dd>
+          </div>
+          <img class="proj-support" id="s1" src="FORMULA-IUT-IMPACT-SIMULATION.jpg" alt="Front-impact FEA simulation of Formula IUT chassis" loading="lazy">
+          <div class="proj-tools">
+            <span class="tool">SolidWorks</span>
+            <span class="tool">ANSYS FEA</span>
+            <span class="tool">MS Project</span>
+            <span class="tool">Steel fabrication</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-outcome">3rd / 53 teams · Formula Bharat 2023</span>
+            <button class="toggle-btn" onclick="toggleDetail('d1','s1',this)">Show details ↓</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2: Impact Attenuator -->
+      <article class="proj-card rev">
+        <img class="proj-img" src="IMPACT-ATTENUATOR-SIMULATION.jpg" alt="Impact attenuator crush simulation" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-num">02 · IUT · Jan 2023 – Jan 2024</div>
+          <h3 class="proj-title">Design &amp; Fabrication of an Impact Attenuator</h3>
+          <p class="proj-summary">Designed a Formula Student-compliant front impact attenuator using recycled aluminium cans. Validated via ANSYS transient FEA and UTM compression testing. Ranked 2nd of 8 teams.</p>
+          <div class="proj-detail" id="d2">
+            <dt>Objective</dt>
+            <dd>Meet FSAE energy absorption requirements using low-cost, sustainable materials.</dd>
+            <dt>What I did</dt>
+            <dd>Modelled attenuator geometry in SolidWorks; ran transient crash FEA in ANSYS; validated crush behaviour against FSAE spec on a UTM; prepared technical poster for judging.</dd>
+            <dt>Outcome</dt>
+            <dd>Design absorbs 7.6 kJ · 2nd / 8 teams on design, simulation &amp; presentation</dd>
+          </div>
+          <img class="proj-support" id="s2" src="IMPACT-ATTENUATOR-FULL-WINDOW-SIMULATION.jpg" alt="Full-window impact simulation view" loading="lazy">
+          <div class="proj-tools">
+            <span class="tool">SolidWorks</span>
+            <span class="tool">ANSYS Transient Structural</span>
+            <span class="tool">UTM testing</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-outcome">7.6 kJ absorbed · 2nd / 8 teams</span>
+            <button class="toggle-btn" onclick="toggleDetail('d2','s2',this)">Show details ↓</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3: Stirling Engine -->
+      <article class="proj-card rev">
+        <img class="proj-img" src="STIRLING-ENGINE-IRL.jpg" alt="Fabricated Stirling engine prototype" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-num">03 · UNSW · Jun – Aug 2025</div>
+          <h3 class="proj-title">Design &amp; Fabrication of a Stirling Engine</h3>
+          <p class="proj-summary">Client-based project to deliver a functional miniature Stirling engine for STEM outreach within 10 weeks. Achieved &lt;1% dimensional deviation from the SolidWorks assembly across 24 sub-assemblies.</p>
+          <div class="proj-detail" id="d3">
+            <dt>Objective</dt>
+            <dd>Design and fabricate a working Stirling engine prototype within an academic timeline and budget, suitable for STEM demonstration.</dd>
+            <dt>What I did</dt>
+            <dd>Built full 24-subassembly SolidWorks model; produced technical drawings and BOM; coordinated fabrication across team; managed project with Gantt chart; delivered client presentation.</dd>
+            <dt>Outcome</dt>
+            <dd>Functional prototype delivered &lt;1% deviation from CAD; used for STEM outreach</dd>
+          </div>
+          <img class="proj-support" id="s3" src="STIRLING-ENGINE-CAD.jpg" alt="SolidWorks CAD model of Stirling engine" loading="lazy">
+          <div class="proj-tools">
+            <span class="tool">SolidWorks</span>
+            <span class="tool">Technical drawings</span>
+            <span class="tool">Lathe / milling</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-outcome">&lt;1% deviation from CAD · 10-week delivery</span>
+            <button class="toggle-btn" onclick="toggleDetail('d3','s3',this)">Show details ↓</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4: Swiss Army Knife -->
+      <article class="proj-card rev">
+        <img class="proj-img" src="SWISS-ARMY-KNIFE-MOULD.jpg" alt="CNC-machined mould for Swiss-army knife component" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-num">04 · UNSW · Sep – Nov 2025</div>
+          <h3 class="proj-title">Miniature Swiss-Army Knife — CAD/CAM Manufacturing</h3>
+          <p class="proj-summary">Six-component miniature multitool designed and manufactured using SolidWorks, Fusion 360, Denford 2D CNC, and injection-moulding trials which demonstrated end-to-end CAD/CAM and DFM workflow.</p>
+          <div class="proj-detail" id="d4">
+            <dt>Objective</dt>
+            <dd>Demonstrate full CAD/CAM pipeline from part design through CNC toolpath generation to physical fabrication of a multi-component product.</dd>
+            <dt>What I did</dt>
+            <dd>Modelled all components in SolidWorks; generated CNC toolpaths in Fusion 360 for Denford 2D CNC; applied DFM principles for draft, fit, and assembly; fabricated moulds; validated injection-moulding with Play-Doh trials; produced laser-cut acrylic prototypes.</dd>
+            <dt>Outcome</dt>
+            <dd>Functional six-component prototype manufactured; DFM and toolpath accuracy validated through fabrication</dd>
+          </div>
+          <div class="proj-tools">
+            <span class="tool">SolidWorks</span>
+            <span class="tool">Fusion 360</span>
+            <span class="tool">Denford CNC</span>
+            <span class="tool">Laser cutting</span>
+            <span class="tool">DFM</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-outcome">Full CAD-to-part pipeline validated</span>
+            <button class="toggle-btn" onclick="toggleDetail('d4',null,this)">Show details ↓</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5: UAS Challenge -->
+      <article class="proj-card rev">
+        <img class="proj-img" src="UAS-CHALLENGE-AIRFLOW-SIMULATION.jpg" alt="CFD airflow simulation of UAS fuselage" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-num">05 · ANTS · Feb 2021 – Jan 2022</div>
+          <h3 class="proj-title">IMechE UAS Challenge — Aerodynamic Analysis &amp; Fabrication</h3>
+          <p class="proj-summary">Contributed to an award-winning UAS competition entry — performing CFD analysis on fuselage and payload configurations and supporting composite airframe fabrication. Team received the IMechE Design Award 2021.</p>
+          <div class="proj-detail" id="d5">
+            <dt>Objective</dt>
+            <dd>Design and fabricate a competition-compliant fixed-wing UAV optimised for aerodynamic performance and structural efficiency.</dd>
+            <dt>What I did</dt>
+            <dd>Ran CFD analyses of fuselage and payload bay configurations in ANSYS Fluent; contributed to laser cutting, foam shaping, and composite layup; supported assembly and pre-competition testing.</dd>
+            <dt>Outcome</dt>
+            <dd>IMechE UAS Challenge Design Award 2021</dd>
+          </div>
+          <div class="proj-tools">
+            <span class="tool">ANSYS Fluent</span>
+            <span class="tool">SolidWorks</span>
+            <span class="tool">Composite layup</span>
+            <span class="tool">Ultimaker Cura</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-outcome">IMechE Design Award 2021</span>
+            <button class="toggle-btn" onclick="toggleDetail('d5',null,this)">Show details ↓</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="label">Capabilities</p>
+    <h2 class="sec-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="sg rev">
+        <div class="sg-title">Engineering</div>
+        <ul>
+          <li>Structural FEA</li><li>Transient / Impact sim</li><li>Composite Design</li>
+          <li>DFM &amp; GD&amp;T</li><li>Pressure Vessel Analysis</li><li>Filament Winding</li>
+          <li>Wind-tunnel modelling</li>
+        </ul>
+      </div>
+      <div class="sg rev">
+        <div class="sg-title">Simulation / Analysis</div>
+        <ul>
+          <li>ANSYS Mechanical</li><li>ANSYS Fluent</li><li>ANSYS ACP</li>
+          <li>OpenFOAM</li><li>BVP / ODE solvers</li><li>UTM testing</li>
+          <li>Post-processing</li>
+        </ul>
+      </div>
+      <div class="sg rev">
+        <div class="sg-title">CAD / Design</div>
+        <ul>
+          <li>SolidWorks</li><li>Autodesk Fusion 360</li><li>Rhinoceros 3D</li>
+          <li>Technical drawings</li><li>BOM preparation</li><li>CNC / Laser cutting</li>
+        </ul>
+      </div>
+      <div class="sg rev">
+        <div class="sg-title">Programming / Tools</div>
+        <ul>
+          <li>Python</li><li>MATLAB</li><li>NumPy / SciPy</li><li>Matplotlib</li>
+          <li>ANSYS APDL</li><li>QGIS · PIX4D</li><li>Git / GitHub</li>
+        </ul>
+      </div>
+      <div class="sg rev">
+        <div class="sg-title">Research / Documentation</div>
+        <ul>
+          <li>Technical writing</li><li>LaTeX</li><li>Literature review</li>
+          <li>Thesis writing</li><li>Gantt planning</li><li>Markdown</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="label">Research &amp; Experience</p>
+    <h2 class="sec-title">Work History</h2>
+    <div class="tl">
+
+      <div class="tl-item rev">
+        <div class="tl-left">
+          <div class="tl-dates">Dec 2025 – May 2026</div>
+          <div class="tl-org">CPP Wind Engineering</div>
+        </div>
+        <div>
+          <div class="tl-role">Lab Engineering Intern</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Designed 3 projects using CAD and DFM principles for lab environment optimisation and R&amp;D</li>
+              <li>Fabricated and analysed wind-tunnel-ready aeroelastic models for commercial testing under variable deadlines and testing conditions</li>
+              <li>Performed frequency analysis, damping analysis, and torque analysis on scale solar panel arrays to evaluate model validity under wind loads</li>
+              <li>Troubleshot test model setup and sensor connections to ensure high data accuracy during engineering analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rev">
+        <div class="tl-left">
+          <div class="tl-dates">Feb 2026 – Current</div>
+          <div class="tl-org">UNSW School of Mechanical &amp; Manufacturing Engineering</div>
+        </div>
+        <div>
+          <div class="tl-role">Casual Academic — CFD </div>
+          <div class="tl-desc">
+            <ul>
+              <li>Running technical laboratory sessions and interactive workshops for Bachelor &amp; Master- level engineering cohorts, guiding students through ANSYS CFD</li>
+              <li>Advising and marking 33 students directly on their group and individual projects within strict deadlines, and teaching standards</li>
+              <li>Providing targeted technical feedback to facilitate self-paced learning through complex fluid dynamics projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rev">
+        <div class="tl-left">
+          <div class="tl-dates">Oct 2024 – Feb 2025</div>
+          <div class="tl-org">ANTS Aerial Systems</div>
+        </div>
+        <div>
+          <div class="tl-role">Research &amp; Development Executive</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Utilised QGIS, PIX4D, WebODM, and other mapping tools to create digitised area maps along with a process SOP for future employees</li>
+              <li>Created 3 area maps within 1 week, covering 620 acres. This helped the company secure 3 government contracts, valued at over $25,000</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rev">
+        <div class="tl-left">
+          <div class="tl-dates">Jul 2024 – Nov 2024</div>
+          <div class="tl-org">Runner Motors Limited</div>
+        </div>
+        <div>
+          <div class="tl-role">Senior Executive (Inventory &amp; Procurement)</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Oversaw the inventory and managed sorting, receiving, and delivery for a 12,000-product warehouse to improve processes</li>
+              <li>Engineered an adjustable hand trolley that reduced manufacturing and material costs from roughly $180 to $56, representing a 68% cost reduction</li>
+              <li>Employed critical thinking principles and improved stock availability, reducing the problem of lost sales by $7,200 per month, and processed $33,000 in warranty parts</li>
+              <li>Led interdepartmental collaborations within a 15-member team on daily operations, shop floor optimisation, and service goals. Showcased deliverables through an SOP and presentation that improved warehouse efficiency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rev">
+        <div class="tl-left">
+          <div class="tl-dates">Feb 2021 – May 2021</div>
+          <div class="tl-org">PuzzleFun World</div>
+        </div>
+        <div>
+          <div class="tl-role">Product Development Intern</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Designed, prototyped using laser cutting, and built a 3D puzzle of an architectural building as a toy to be sold by the company, along with its written guide</li>
+              <li>Optimised warehouse workflows and material handling for high-volume assembly environment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <p class="label">Education</p>
+    <h2 class="sec-title">Academic Background</h2>
+    <div class="edu-cards">
+
+      <div class="edu-card rev">
+        <div>
+          <div class="edu-degree">Master of Engineering (Mechanical)</div>
+          <div class="edu-uni">University of New South Wales (UNSW), Sydney</div>
+          <div class="edu-sub">Coursework: HVAC, Noise &amp; Acoustics, CFD, FEA, CAD/CAM, Fracture Mechanics, Mechanical Design</div>
+        </div>
+        <div class="edu-date">Feb2025 – Present</div>
+      </div>
+
+      <div class="edu-card rev">
+        <div>
+          <div class="edu-degree">Bachelor of Science (Industrial and Production Engineering)</div>
+          <div class="edu-uni">Islamic University of Technology (IUT), Bangladesh</div>
+          <div class="edu-sub">Founded Formula Student team · Impact Attenuator project · ANTS UAS Challenge</div>
+        </div>
+        <div class="edu-date">2020 – 2024</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <p class="label">Get In Touch</p>
+    <h2 class="sec-title">Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          Open to graduate engineering roles, research collaborations, and consulting work
+          in structural analysis, FEA/CFD, and applied engineering computation.
+          Based in Sydney, NSW and willing to relocate around Australia for the right opportunity.
+        </p>
+        <a href="Zafir_Resume.pdf" download="Hasin_Ahmad_Zafir_Resume.pdf" class="btn btn-p">↓ Download Resume (PDF)</a>
+      </div>
+      <ul class="contact-links">
+        <li>
+          <span class="ci">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <a href="mailto:hasinahmadzafir@gmail.com">hasinahmadzafir@gmail.com</a>
+        </li>
+        <li>
+          <span class="ci">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </span>
+          <a href="https://www.linkedin.com/in/hasin-ahmad-zafir/" target="_blank" rel="noopener">linkedin.com/in/hasin-ahmad-zafir</a>
+        </li>
+        <li>
+          <span class="ci">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </span>
+          <a href="https://github.com/hasinahmadzafir" target="_blank" rel="noopener">github.com/hasinahmadzafir</a>
+        </li>
+        <li>
+          <span class="ci">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span>Sydney, New South Wales, Australia</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Hasin Ahmad Zafir · Mechanical Engineer · Sydney, AU · 2026</footer>
+
+<script>
+  // Theme
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-btn');
+  const saved = localStorage.getItem('theme');
+  if(saved) html.setAttribute('data-theme', saved);
+  btn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  // Reveal
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+  // Project detail toggle
+  function toggleDetail(detailId, supportId, btn) {
+    const d = document.getElementById(detailId);
+    const open = d.classList.toggle('open');
+    if(supportId) { document.getElementById(supportId).classList.toggle('open', open); }
+    btn.textContent = open ? 'Hide details ↑' : 'Show details ↓';
+  }
+</script>
+</body>
+</html>
