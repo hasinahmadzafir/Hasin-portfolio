@@ -48,15 +48,26 @@
   .nav-links { display: flex; gap: 1.75rem; list-style: none; }
   .nav-links a { color: var(--text-muted); font-size: 0.82rem; font-weight: 500; }
   .nav-links a:hover { color: var(--text); text-decoration: none; }
-  #theme-btn { background: none; border: 1px solid var(--border); border-radius: var(--r); padding: 0.28rem 0.6rem; cursor: pointer; color: var(--text-muted); font-size: 0.75rem; transition: all var(--t); font-family: var(--font-mono); }
+  #theme-btn {
+    background: none; border: 1px solid var(--border); border-radius: var(--r);
+    padding: 0.28rem 0.6rem; cursor: pointer; color: var(--text-muted);
+    font-size: 0.75rem; transition: all var(--t); font-family: var(--font-mono);
+  }
   #theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
   /* LAYOUT */
   main { padding-top: 54px; }
   section { padding: 5rem 2rem; }
   .wrap { max-width: 980px; margin: 0 auto; }
-  .label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.6rem; }
-  .sec-title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; color: var(--text); margin-bottom: 2.5rem; }
+  .label {
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.13em; color: var(--accent); text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .sec-title {
+    font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em;
+    color: var(--text); margin-bottom: 2.5rem;
+  }
 
   /* HERO */
   #hero {
@@ -80,13 +91,22 @@
   .hero-summary { font-size: 1rem; color: var(--text-muted); max-width: 620px; line-height: 1.78; margin-bottom: 2rem; }
   .hero-summary strong { color: var(--text); font-weight: 600; }
   .cta-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.6rem 1.2rem; border-radius: var(--r); font-size: 0.85rem; font-weight: 600; transition: all var(--t); border: none; cursor: pointer; text-decoration: none; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.6rem 1.2rem; border-radius: var(--r); font-size: 0.85rem;
+    font-weight: 600; transition: all var(--t); border: none; cursor: pointer;
+    text-decoration: none;
+  }
   .btn-p { background: var(--accent); color: #fff; }
   .btn-p:hover { opacity: 0.85; text-decoration: none; }
   .btn-s { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-s:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
   .hero-tags { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .tag { font-family: var(--font-mono); font-size: 0.7rem; padding: 0.25rem 0.6rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 100px; color: var(--text-muted); }
+  .tag {
+    font-family: var(--font-mono); font-size: 0.7rem; padding: 0.25rem 0.6rem;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 100px; color: var(--text-muted);
+  }
 
   /* PROJECTS */
   #projects { background: var(--bg); }
@@ -94,7 +114,6 @@
   @media(min-width:700px){ .proj-grid { grid-template-columns: repeat(2, 1fr); } }
   @media(min-width:1000px){ .proj-grid { grid-template-columns: repeat(3, 1fr); } }
 
-  /* Featured (spans 2 cols on md+) */
   .proj-card-featured { grid-column: 1 / -1; }
   @media(min-width:700px){ .proj-card-featured { grid-column: span 2; } }
   @media(min-width:1000px){ .proj-card-featured { grid-column: span 2; } }
@@ -109,15 +128,21 @@
   .proj-img { width: 100%; height: 200px; object-fit: cover; background: var(--surface-2); }
   .proj-card-featured .proj-img { height: 280px; }
   .proj-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
-  .proj-num { font-family: var(--font-mono); font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+  .proj-num {
+    font-family: var(--font-mono); font-size: 0.66rem; color: var(--accent);
+    letter-spacing: 0.08em; margin-bottom: 0.4rem;
+  }
   .proj-title { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
   .proj-summary { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.9rem; line-height: 1.6; }
 
-  /* project detail accordion */
   .proj-detail { font-size: 0.8rem; margin-bottom: 0.9rem; display: none; }
   .proj-detail.open { display: block; }
-  .proj-detail dt { font-weight: 600; color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.55rem; }
+  .proj-detail dt {
+    font-weight: 600; color: var(--text-muted); font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.55rem;
+  }
   .proj-detail dd { color: var(--text); margin-left: 0; }
+
   .proj-support {
     width: 100%;
     margin-top: 0.75rem;
@@ -128,16 +153,28 @@
     display: none;
     padding: 0.35rem;
   }
-  .proj-support.open { display: block; }
+  .proj-support.open {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
 
   .proj-tools { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.9rem; }
-  .tool { font-family: var(--font-mono); font-size: 0.66rem; padding: 0.18rem 0.45rem; background: var(--accent-dim); color: var(--accent); border-radius: 4px; border: 1px solid var(--accent); opacity: 0.9; }
-  .proj-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .tool {
+    font-family: var(--font-mono); font-size: 0.66rem; padding: 0.18rem 0.45rem;
+    background: var(--accent-dim); color: var(--accent); border-radius: 4px;
+    border: 1px solid var(--accent); opacity: 0.9;
+  }
+  .proj-footer {
+    margin-top: auto; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  }
   .proj-outcome { font-size: 0.78rem; color: var(--text-muted); font-style: italic; }
-  .toggle-btn { font-size: 0.75rem; color: var(--accent); background: none; border: none; cursor: pointer; padding: 0; font-family: var(--font-sans); font-weight: 600; }
+  .toggle-btn {
+    font-size: 0.75rem; color: var(--accent); background: none; border: none;
+    cursor: pointer; padding: 0; font-family: var(--font-sans); font-weight: 600;
+  }
   .toggle-btn:hover { text-decoration: underline; }
 
-  /* Clickable images */
   .proj-img,
   .proj-support {
     cursor: zoom-in;
@@ -212,14 +249,24 @@
   @media(min-width:560px){ .skills-grid { grid-template-columns: repeat(2, 1fr); } }
   @media(min-width:900px){ .skills-grid { grid-template-columns: repeat(3, 1fr); } }
   .sg { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.2rem; }
-  .sg-title { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+  .sg-title {
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
   .sg ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .sg li { font-size: 0.79rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.5rem; }
+  .sg li {
+    font-size: 0.79rem; color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.5rem;
+  }
 
   /* EXPERIENCE */
   #experience { background: var(--bg); }
   .tl { display: flex; flex-direction: column; gap: 2rem; }
-  .tl-item { display: grid; grid-template-columns: 150px 1fr; gap: 1.25rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .tl-item {
+    display: grid; grid-template-columns: 150px 1fr; gap: 1.25rem;
+    padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+  }
   .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
   .tl-left { padding-top: 0.1rem; }
   .tl-dates { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); line-height: 1.5; }
@@ -232,7 +279,11 @@
   /* EDUCATION */
   #education { background: var(--surface); border-top: 1px solid var(--border); }
   .edu-cards { display: flex; flex-direction: column; gap: 1rem; }
-  .edu-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: start; }
+  .edu-card {
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 1.5rem;
+    display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: start;
+  }
   .edu-degree { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.2rem; }
   .edu-uni { color: var(--accent); font-weight: 600; font-size: 0.86rem; margin-bottom: 0.4rem; }
   .edu-sub { font-size: 0.81rem; color: var(--text-muted); }
@@ -244,10 +295,18 @@
   .contact-intro { font-size: 0.93rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
   .contact-links { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
   .contact-links li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.86rem; }
-  .ci { width: 30px; height: 30px; border-radius: 5px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ci {
+    width: 30px; height: 30px; border-radius: 5px; background: var(--surface);
+    border: 1px solid var(--border); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
 
   /* FOOTER */
-  footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.25rem 2rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+  footer {
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 1.25rem 2rem; text-align: center; font-size: 0.75rem;
+    color: var(--text-muted); font-family: var(--font-mono);
+  }
 
   /* REVEAL */
   .rev { opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
@@ -283,7 +342,6 @@
 
 <main>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Mechanical Engineering &amp; Product Development</div>
@@ -309,14 +367,12 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
     <p class="label">Featured Work</p>
     <h2 class="sec-title">Engineering Projects</h2>
     <div class="proj-grid">
 
-      <!-- 1: Formula IUT (featured / wide) -->
       <article class="proj-card proj-card-featured rev">
         <img class="proj-img" src="FORMULA IUT IRL.jpeg" alt="Formula IUT FSAE car, fully assembled on campus" loading="lazy">
         <div class="proj-body">
@@ -340,12 +396,11 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">3rd / 53 teams · Formula Bharat 2023</span>
-            <button class="toggle-btn" onclick="toggleDetail('d1','s1',this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d1', ['s1'], this)">Show details ↓</button>
           </div>
         </div>
       </article>
 
-      <!-- 2: Impact Attenuator -->
       <article class="proj-card rev">
         <img class="proj-img" src="IMPACT ATTENUATOR SIMULATION.png" alt="Impact attenuator crush simulation" loading="lazy">
         <div class="proj-body">
@@ -368,12 +423,11 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">7.6 kJ absorbed · 2nd / 8 teams</span>
-            <button class="toggle-btn" onclick="toggleDetail('d2','s2',this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d2', ['s2'], this)">Show details ↓</button>
           </div>
         </div>
       </article>
 
-      <!-- 3: Stirling Engine -->
       <article class="proj-card rev">
         <img class="proj-img" src="STIRLING ENGINE IRL.jpeg" alt="Fabricated Stirling engine prototype" loading="lazy">
         <div class="proj-body">
@@ -396,12 +450,11 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">&lt;1% deviation from CAD · 10-week delivery</span>
-            <button class="toggle-btn" onclick="toggleDetail('d3','s3',this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d3', ['s3'], this)">Show details ↓</button>
           </div>
         </div>
       </article>
 
-      <!-- 4: Swiss Army Knife -->
       <article class="proj-card rev">
         <img class="proj-img" src="SWISS ARMY KNIFE MOULD.jpeg" alt="CNC-machined mould for Swiss-army knife component" loading="lazy">
         <div class="proj-body">
@@ -425,12 +478,11 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">Full CAD-to-part pipeline validated</span>
-            <button class="toggle-btn" onclick="toggleDetail('d4',null,this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d4', [], this)">Show details ↓</button>
           </div>
         </div>
       </article>
 
-      <!-- 5: UAS Challenge -->
       <article class="proj-card rev">
         <img class="proj-img" src="UAS CHALLENGE AIRFLOW SIMULATION.png" alt="CFD airflow simulation of UAS fuselage" loading="lazy">
         <div class="proj-body">
@@ -453,12 +505,11 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">IMechE Design Award 2021</span>
-            <button class="toggle-btn" onclick="toggleDetail('d5',null,this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d5', [], this)">Show details ↓</button>
           </div>
         </div>
       </article>
 
-      <!-- 6: Surrogate Machine Learning Model -->
       <article class="proj-card rev">
         <img class="proj-img" src="FEATURE_IMPORTANCE.png" alt="Feature importance plot of input parameters" loading="lazy">
         <div class="proj-body">
@@ -473,10 +524,12 @@
             <dt>Outcome</dt>
             <dd>A reproducible Python workflow and ML project showing how data-driven surrogate models can support rapid early-stage wind engineering analysis while acknowledging CFD as the final validation tool.</dd>
           </div>
-          <img class="proj-support" id="s6" src="exploratory_scatter.png" alt="Exploration" loading="lazy">
-          <img class="proj-support" id="s7" src="gradient_boosting_pred_vs_true.png" alt="Gradient Boosting" loading="lazy">
-          <img class="proj-support" id="s8" src="linear_regression_pred_vs_true.png" alt="Linear Regression" loading="lazy">
-          <img class="proj-support" id="s9" src="random_forest_pred_vs_true.png" alt="Random Forest" loading="lazy">
+
+          <img class="proj-support" id="s6" src="exploratory_scatter.png" alt="Exploratory scatter plot" loading="lazy">
+          <img class="proj-support" id="s7" src="gradient_boosting_pred_vs_true.png" alt="Gradient boosting predicted versus true plot" loading="lazy">
+          <img class="proj-support" id="s8" src="linear_regression_pred_vs_true.png" alt="Linear regression predicted versus true plot" loading="lazy">
+          <img class="proj-support" id="s9" src="random_forest_pred_vs_true.png" alt="Random forest predicted versus true plot" loading="lazy">
+
           <div class="proj-tools">
             <span class="tool">Python</span>
             <span class="tool">Data Analysis</span>
@@ -485,7 +538,7 @@
           </div>
           <div class="proj-footer">
             <span class="proj-outcome">ML surrogate for urban wind screening</span>
-            <button class="toggle-btn" onclick="toggleDetail('d6',null,this)">Show details ↓</button>
+            <button class="toggle-btn" onclick="toggleDetail('d6', ['s6','s7','s8','s9'], this)">Show details ↓</button>
           </div>
         </div>
       </article>
@@ -494,7 +547,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <p class="label">Capabilities</p>
@@ -570,7 +622,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <p class="label">Research &amp; Experience</p>
@@ -586,7 +637,7 @@
           <div class="tl-role">Casual Academic — CFD</div>
           <div class="tl-desc">
             <ul>
-              <li>Running technical laboratory sessions and interactive workshops for Bachelor &amp; Master- level engineering cohorts, guiding students through ANSYS CFD</li>
+              <li>Running technical laboratory sessions and interactive workshops for Bachelor &amp; Master-level engineering cohorts, guiding students through ANSYS CFD</li>
               <li>Advising and marking 33 students directly on their group and individual projects within strict deadlines, and teaching standards</li>
               <li>Providing targeted technical feedback to facilitate self-paced learning through complex fluid dynamics projects</li>
             </ul>
@@ -666,13 +717,11 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
     <p class="label">Education</p>
     <h2 class="sec-title">Academic Background</h2>
     <div class="edu-cards">
-
       <div class="edu-card rev">
         <div>
           <div class="edu-degree">Master of Engineering (Mechanical)</div>
@@ -690,12 +739,10 @@
         </div>
         <div class="edu-date">2020 – 2024</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <p class="label">Get In Touch</p>
@@ -751,30 +798,39 @@
 </div>
 
 <script>
-  // Theme
   const html = document.documentElement;
   const btn = document.getElementById('theme-btn');
   const saved = localStorage.getItem('theme');
-  if(saved) html.setAttribute('data-theme', saved);
+  if (saved) html.setAttribute('data-theme', saved);
+
   btn.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
   });
 
-  // Reveal
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  const obs = new IntersectionObserver(
+    es => es.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('vis');
+    }),
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+  );
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 
-  // Project detail toggle
-  function toggleDetail(detailId, supportId, btn) {
+  function toggleDetail(detailId, supportIds, btn) {
     const d = document.getElementById(detailId);
     const open = d.classList.toggle('open');
-    if(supportId) { document.getElementById(supportId).classList.toggle('open', open); }
+
+    if (supportIds && Array.isArray(supportIds)) {
+      supportIds.forEach(id => {
+        const img = document.getElementById(id);
+        if (img) img.classList.toggle('open', open);
+      });
+    }
+
     btn.textContent = open ? 'Hide details ↑' : 'Show details ↓';
   }
 
-  // Lightbox for project images
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
