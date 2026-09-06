@@ -511,33 +511,35 @@
       </article>
 
       <article class="proj-card rev">
-        <img class="proj-img" src="FEATURE_IMPORTANCE.png" alt="Feature importance plot of input parameters" loading="lazy">
+        <img class="proj-img" src="FEATURE_IMPORTANCE.png" alt="Permutation-importance ranking of engineered features for the urban wind surrogate" loading="lazy">
         <div class="proj-body">
-          <div class="proj-num">06 · Personal Project · June 2026 – Current</div>
-          <h3 class="proj-title">Machine learning surrogate model for pedestrian-level urban wind prediction</h3>
-          <p class="proj-summary">Built a machine-learning surrogate model to approximate pedestrian-level urban wind response from simplified geometry and wind parameters, demonstrating how ML can accelerate early-stage CFD-informed design screening.</p>
+          <div class="proj-num">06 · Personal Project · Jun 2026 – Sep 2026</div>
+          <h3 class="proj-title">Urban Wind Comfort Surrogate — CFD-Informed Machine Learning</h3>
+          <p class="proj-summary">Python ML surrogate that approximates a pedestrian-level velocity ratio from simplified urban geometry and inflow conditions. Built as an honest proof-of-concept pipeline — structured cases, grouped cross-validation, engineered features from urban-canyon literature, tail-aware metrics — designed to be plugged into a real CFD dataset later.</p>
           <div class="proj-detail" id="d6">
             <dt>Objective</dt>
-            <dd>Develop a fast surrogate model for urban wind comfort screening that predicts a local velocity ratio from urban geometry and inflow conditions without requiring repeated full CFD runs.</dd>
+            <dd>Build a defensible ML surrogate workflow for urban wind comfort screening: predict a local velocity ratio from urban geometry and inflow conditions, with validation and interpretation methods that would still hold up when the labels come from CFD.</dd>
             <dt>What I did</dt>
-            <dd>Generated a synthetic, physics-informed dataset in Python; trained and compared Linear Regression, Random Forest, and Gradient Boosting models; evaluated performance using RMSE, MAE, and R²; and produced predicted-vs-actual and feature-importance visualisations.</dd>
+            <dd>Generated 150 structured synthetic cases × 4 probes (600 rows) with case_id as the group key; engineered 17 physically motivated features including cyclic wind encoding, street-axis alignment, canyon aspect ratio H/W, plan- and frontal-area density, and normalised probe geometry; benchmarked Linear, Random Forest, and Gradient Boosting under GroupKFold(5) to avoid case-level leakage; added log-target and quantile-regression (p50, p90) variants; used per-band RMSE and bias to expose tail behaviour and permutation importance for interpretation.</dd>
             <dt>Outcome</dt>
-            <dd>A reproducible Python workflow and ML project showing how data-driven surrogate models can support rapid early-stage wind engineering analysis while acknowledging CFD as the final validation tool.</dd>
+            <dd>Gradient Boosting reached grouped-CV R² = 0.644 (RMSE 0.217) against a linear-on-engineered baseline of R² 0.557 — most of the signal came from feature engineering, and all models under-predicted the sparse high-amplification tail, which is explicitly documented. Delivered a reproducible pipeline with a metrics CSV and honest limitations statement, positioned as the ML front-end for a future parametrised CFD (e.g. OpenFOAM) campaign.</dd>
           </div>
 
-          <img class="proj-support" id="s6" src="exploratory_scatter.png" alt="Exploratory scatter plot" loading="lazy">
-          <img class="proj-support" id="s7" src="gradient_boosting_pred_vs_true.png" alt="Gradient boosting predicted versus true plot" loading="lazy">
-          <img class="proj-support" id="s8" src="linear_regression_pred_vs_true.png" alt="Linear regression predicted versus true plot" loading="lazy">
-          <img class="proj-support" id="s9" src="random_forest_pred_vs_true.png" alt="Random forest predicted versus true plot" loading="lazy">
+          <img class="proj-support" id="s6" src="gradient_boosting_pred_vs_true.png" alt="Gradient Boosting predicted vs true velocity ratio under GroupKFold" loading="lazy">
+          <img class="proj-support" id="s7" src="random_forest_pred_vs_true.png" alt="Random Forest predicted vs true velocity ratio under GroupKFold" loading="lazy">
+          <img class="proj-support" id="s8" src="linear_regression_pred_vs_true.png" alt="Linear regression on engineered features, predicted vs true" loading="lazy">
+          <img class="proj-support" id="s9" src="exploratory_scatter.png" alt="Exploratory scatter: engineered features vs target velocity ratio" loading="lazy">
 
           <div class="proj-tools">
             <span class="tool">Python</span>
-            <span class="tool">Data Analysis</span>
-            <span class="tool">Model Evaluation</span>
-            <span class="tool">Python Libraries</span>
+            <span class="tool">scikit-learn</span>
+            <span class="tool">pandas</span>
+            <span class="tool">matplotlib</span>
+            <span class="tool">GroupKFold</span>
+            <span class="tool">Quantile regression</span>
           </div>
           <div class="proj-footer">
-            <span class="proj-outcome">ML surrogate for urban wind screening</span>
+            <span class="proj-outcome">Grouped-CV R² 0.644 · RMSE 0.217 · synthetic PoC</span>
             <button class="toggle-btn" onclick="toggleDetail('d6', ['s6','s7','s8','s9'], this)">Show details ↓</button>
           </div>
         </div>
